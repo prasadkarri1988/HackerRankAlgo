@@ -7,18 +7,16 @@ public class ArrayManipulation {
     public static long arrayManipulation(int n, List<List<Integer>> queries) {
         // Write your code here
 
-        // Write your code here
 
         List<Integer> array = new ArrayList<>(n);
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n+1; i++) {
             array.add(0);
         }
 
-
         for (int i = 0; i < queries.size(); i++) {
 
-            for (int j = queries.get(i).get(0) - 1; j < queries.get(i).get(1); j++) {
+            for (int j = queries.get(i).get(0); j < queries.get(i).get(1)+1; j++) {
                 array.set(j, array.get(j) + queries.get(i).get(2));
             }
 
@@ -28,10 +26,10 @@ public class ArrayManipulation {
 
     public static void main(String[] args) {
 
-        Integer[] a1 = {2, 6, 8};
-        Integer[] a2 = {3, 5, 7};
-        Integer[] a3 = {1, 8, 1};
-        Integer[] a4 = {5, 9, 15};
+        Integer[] a1 = {1 ,10, 10};
+        Integer[] a2 = {1, 10, 10};
+        Integer[] a3 = {1, 10, 10};
+        Integer[] a4 = {1, 10, 10};
 
         List<Integer> l1 = Arrays.asList(a1);
         List<Integer> l2 = Arrays.asList(a2);

@@ -6,21 +6,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MinimumSwaps {
-
     // Complete the minimumSwaps function below.
     static int minimumSwaps(int[] arr) {
-        int swaps = 0;
-        List<Integer> newList = Arrays.stream(arr).boxed().collect(Collectors.toList());
-        for (int i = 0; i < newList.size(); i++) {
-            if (newList.get(i) != i + 1) {
+        int swaps = 0, i = 0;
+        while (i < arr.length) {
+            int index = arr[i] - 1;
+            int temp=arr[i];
+            if (arr[index] != arr[i]) {
+                arr[i] = arr[index];
+                arr[index] = temp;
                 swaps++;
-                int temp = newList.get(i);
-                int newIndex = newList.indexOf(i + 1);
-                newList.set(i, newList.get(newIndex));
-                newList.set(newIndex, temp);
+            } else {
+                i = i + 1;
             }
         }
-
         return swaps;
     }
 
